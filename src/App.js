@@ -7,13 +7,14 @@ export const GloabaData= createContext()
 
 const App = () => {
   const[dark,setDark]=useState(false);
+  const[page,setPage]=useState("Home");
   
   return (
 
       <div style={
         dark ? {backgroundColor:"black",color:"white"} : {backgroundColor:"white",color:"black"}
       }>
-            <GloabaData.Provider value={{dark,setDark}}>
+            <GloabaData.Provider value={{dark,setDark,page,setPage}}>
              <p style={{
               textAlign:"center", fontSize:"1.3rem"
              }}>I have Changed theme to {dark ? "Dark" : "Light"}</p>

@@ -1,6 +1,8 @@
 import React from 'react'
-
+import { GloabaData } from '../App'
+import { useContext } from 'react'
 const Navbar = () => {
+    const{page,setPage}=useContext(GloabaData)
   return (
     <div>
         <ul style={{
@@ -12,16 +14,22 @@ const Navbar = () => {
             cursor:"pointer"
         }}>
             <li onClick={()=>{
-                localStorage.setItem("activate","Home");
-                window.location.reload()
+                // localStorage.setItem("activate","Home");
+                // window.location.reload()
+                setPage("Home")
+                console.log(page)
             }}>Home</li>
             <li onClick={()=>{
-                localStorage.setItem("activate","Contact");
-                window.location.reload()
+                // localStorage.setItem("activate","Contact");
+                // window.location.reload()
+                setPage("Contact")
+                console.log(page)
             }}>Contact</li>
             <li onClick={()=>{
-                localStorage.setItem("activate","Service");
-                window.location.reload()
+                // localStorage.setItem("activate","Service");
+                // window.location.reload()
+                setPage("Service");
+                console.log(page)
             }}>Service</li>
         </ul>
     </div>
