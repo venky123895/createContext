@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from 'react'
+import MainContainer from './components/MainContainer'
+import Navbar from './components/Navbar'
+import Button from './components/Button'
 
-function App() {
+export const GloabaData= createContext()
+
+const App = () => {
+  const[dark,setDark]=useState(false);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+      <div style={
+        dark ? {backgroundColor:"black",color:"white"} : {backgroundColor:"white",color:"black"}
+      }>
+            <GloabaData.Provider value={{dark,setDark}}>
+             <p style={{
+              textAlign:"center", fontSize:"1.3rem"
+             }}>I have Changed theme to {dark ? "Dark" : "Light"}</p>
+          <p style={{
+        textAlign:"center",
+        fontSize:"1.3rem"
+      }}>Geekster</p>
+      <Navbar/>
+      <Button/>
+      <MainContainer/>
+    </GloabaData.Provider>
+      </div>
+   
+  )
 }
 
-export default App;
+export default App
